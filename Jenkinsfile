@@ -3,14 +3,18 @@ pipeline {
   agent any
   tools{
     maven 'Maven3'
+    jdk 'jdk9'
   }
   stages{
     stage("build") {
      
       steps {
-        echo 'building the app'
+        echo 'install the app'
         sh "mvn install"
-        sh "mvn build"
+      }
+      steps {
+        echo 'building the app'
+        sh "mvn install"       
       }
     }
     stage("test") {
