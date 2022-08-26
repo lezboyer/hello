@@ -10,11 +10,7 @@ pipeline {
      
       steps {
         echo 'install the app'
-        sh "mvn install"
-      }
-      steps {
-        echo 'building the app'
-        sh "mvn install"       
+        sh "sh 'mvn -Dmaven.test.failure.ignore=true install'"
       }
     }
     stage("test") {
