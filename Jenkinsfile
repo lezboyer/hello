@@ -1,18 +1,15 @@
 
 pipeline {
   agent any
-  environment {
-    SERVER_CREDENTIALS = credentials('jenkins-exemple-private-pat')
+  tools{
+    maven 'Maven3'
   }
   stages{
     stage("build") {
-      when {
-        expression {
-          BRANCH_NAME == 'main'
-        }
-      }
+     
       steps {
         echo 'building the app'
+        sh "mvn install"
       }
     }
     stage("test") {
@@ -22,7 +19,7 @@ pipeline {
     }
     stage("deploy") {
       steps {
-        echo "deploying with ${SERVER_CREDENTIALS}"
+        echo "deploying with }"
       }
     }
   }
