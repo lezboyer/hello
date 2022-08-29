@@ -9,7 +9,7 @@ pipeline {
     stage("build") {
      
       steps {
-        echo 'install the app'
+        echo 'install the senghor'
         sh 'mvn -Dmaven.test.failure.ignore=true install'
       }
     }
